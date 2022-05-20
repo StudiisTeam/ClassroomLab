@@ -5,9 +5,9 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import jwt from 'express-jwt';
+import * as jwt from 'express-jwt';
 import { expressJwtSecret } from 'jwks-rsa';
-import { promisify } from 'node:util';
+import { promisify } from 'util';
 
 @Injectable()
 export class AuthorizationGuard implements CanActivate {
@@ -20,25 +20,24 @@ export class AuthorizationGuard implements CanActivate {
   }
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const httpContext = context.switchToHttp();
-    const req = httpContext.getRequest;
-    const res = httpContext.getResponse;
+    const req = httpContext.getRequest();
+    const res = httpContext.getResponse();
 
-    const checkJWT = promisify(
-      jwt({
-        secret: expressJwtSecret({
-          cache: true,
-          rateLimit: true,
-          jwksRequestsPerMinute: 5,
-          jwksUri: `${this.AUTH0_DOMAIN}.well-known/jwks.json`,
-        }),
-        audience: this.AUTH0_AUDIENCE,
-        issuer: this.AUTH0_DOMAIN,
-        arguments: ['RS256'],
-      }),
-    );
+    //const checkJwt = promisify();
+    // jwt({
+    //   secret: expressJwtSecret({
+    //     cache: true,
+    //     rateLimit: true,
+    //     jwksRequestsPerMinute: 5,
+    //     jwksUri: `${this.AUTH0_DOMAIN}.well-known/jwks.json`,
+    //   }),
+    //   audience: this.AUTH0_AUDIENCE,
+    //   issuer: this.AUTH0_DOMAIN,
+    //   algorithms: ['RS256'],
+    // }),
 
     try {
-      await checkJWT(req, res);
+      // await checkJwt(req, res);
 
       return true;
     } catch (err) {
