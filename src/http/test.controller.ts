@@ -8,6 +8,6 @@ export class TestController {
   @Get('ok')
   @UseGuards(AuthorizationGuard)
   hello() {
-    return this.prisma.customers.findMany();
+    return this.prisma.customer.findMany();
   }
 }
