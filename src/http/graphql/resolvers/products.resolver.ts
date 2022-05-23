@@ -12,13 +12,13 @@ export class ProductsResolver {
   constructor(private productsService: ProductsService) {}
 
   @Query(() => [Product])
-  //@UseGuards(AuthorizationGuard)
+  @UseGuards(AuthorizationGuard)
   products() {
     return this.productsService.listAllProject();
   }
 
   @Mutation(() => Product)
-  //@UseGuards(AuthorizationGuard)
+  @UseGuards(AuthorizationGuard)
   createProduct(@Args('data') data: CreateProductInput) {
     return this.productsService.createProduct(data);
   }
