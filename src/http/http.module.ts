@@ -6,6 +6,7 @@ import path from 'path';
 import { DatabaseModule } from 'src/database/database.module';
 import { ProductsService } from 'src/services/products.service';
 import { ProductsResolver } from './graphql/resolvers/products.resolver';
+import { TestController } from './test.controller';
 
 @Module({
   imports: [
@@ -17,5 +18,6 @@ import { ProductsResolver } from './graphql/resolvers/products.resolver';
     }),
   ],
   providers: [ProductsResolver, ProductsService],
+  controllers: [TestController],
 })
 export class HttpModule {}
