@@ -19,5 +19,5 @@ export class Enrollment {
 
   @Field(() => Course)
   course: Course;
-  couseId: string;
+  courseId: string;
 }
