@@ -1,4 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { Enrollment } from './enrollment';
 
 @ObjectType()
 export class Course {
@@ -10,4 +11,7 @@ export class Course {
 
   @Field()
   slug: string;
+
+  @Field(() => [Enrollment])
+  enrolledOn: Enrollment[];
 }
