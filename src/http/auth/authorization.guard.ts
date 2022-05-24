@@ -29,10 +29,11 @@ export class AuthorizationGuard implements CanActivate {
           cache: true,
           rateLimit: true,
           jwksRequestsPerMinute: 5,
-          jwksUri: `${this.AUTH0_DOMAIN}.well-known/jwks.json`,
+          jwksUri:
+            'https://ignitelabfontenele.us.auth0.com/.well-known/jwks.json',
         }),
-        audience: this.AUTH0_AUDIENCE,
-        issuer: this.AUTH0_DOMAIN,
+        audience: 'ignite-lab-fontenele',
+        issuer: 'https://ignitelabfontenele.us.auth0.com/',
         algorithms: ['RS256'],
       }),
     );

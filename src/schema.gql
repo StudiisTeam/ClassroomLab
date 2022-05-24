@@ -28,6 +28,7 @@ type Course {
 }
 
 type Query {
+  me: Student!
   students: [Student!]!
   course: [Course!]!
   enrollment: [Enrollment!]!
