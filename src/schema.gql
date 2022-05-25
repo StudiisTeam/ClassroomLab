@@ -30,7 +30,8 @@ type Course {
 type Query {
   me: Student!
   students: [Student!]!
-  course: [Course!]!
+  courses: [Course!]!
+  course(id: String!): Course!
   enrollment: [Enrollment!]!
 }
 
