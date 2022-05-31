@@ -20,7 +20,7 @@ type User {
 type Enrollment {
   id: ID!
   canceledAt: DateTime
-  createdAt: DateTime!
+  created_at: DateTime!
   student: User!
   course: Course!
 }

@@ -11,7 +11,7 @@ export class Enrollment {
   canceledAt: Date;
 
   @Field(() => Date)
-  createdAt: Date;
+  created_at: Date;
 
   @Field(() => Student)
   student: Student;
